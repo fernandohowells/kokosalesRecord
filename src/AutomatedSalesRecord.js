@@ -9,7 +9,7 @@ function App() {
           GitHub Codespaces <span className="heart">♥️</span> React
         </p>
         <p className="small">
-          Edit <code>src/App.js</code> and save to reload.
+          Edit <code>src/AutomatedSalesRecord.js</code> and save to reload.
         </p>
         <p>
           <a
@@ -35,15 +35,15 @@ export default App;
 let StockRecord = [];
 
 while (true) {
-  let name = prompt("Enter stock name (or type 'done' to exit):");
+  let stockname = prompt("Enter stock name (or type 'done' to exit):");
   if (name === "done") {
     break;
   }
-
+  
   let stockQuantity = parseFloat(prompt("Enter stock quantity for " + name + ":"));
   let stockunitPrice = parseFloat(prompt("Enter stock unit price for " + name + ":"));
 
-  stocks.push({
+  StockRecords.push({
     name: stockname,
     quantity: stockQuantity,
     unitPrice: stockunitPrice,
@@ -105,7 +105,7 @@ printStockRecords();
 // DAILY STOCK RECORDS
 
 // Define an object to store the stock records daily
-let DailyStockRecord = {};
+let DailyStockRecords = {};
 
 // Define a function to add a new stock record for a given date
 function addStockRecord(stockName, DailystockQuantity, stockunitPrice, date, time) {
@@ -114,7 +114,7 @@ function addStockRecord(stockName, DailystockQuantity, stockunitPrice, date, tim
   let DailystocktotalPrice = DailystockQuantity * stockunitPrice;
 
   // Create a new stock record object
-  let DailyStockRecords = {
+  let DailyStockRecord = {
     name: stockName,
     quantity: DailystockQuantity,
     unitPrice: stockunitPrice,
@@ -124,10 +124,10 @@ function addStockRecord(stockName, DailystockQuantity, stockunitPrice, date, tim
   };
 
   // Add the new stock record to the array for the given date
-  if (DailyStockRecords[date]) {
-    DailyStockRecords[date].push(DailyStockRecords);
+  if (DailyStockRecord[date]) {
+    DailyStockRecord[date].push(DailyStockRecord);
   } else {
-    DailyStockRecords[date] = [DailyStockRecords];
+    DailyStockRecord [date] = [DailyStockRecord];
   }
 }
 
@@ -141,7 +141,7 @@ addStockRecord("Chrome BS", 30, 750, "2023-02-17", "3:00 PM");
 // Define a function to print all the stock records for a given date
 function printStockRecords(date) {
   // Get the array of stock records for the given date
-  let DailyStockRecords = DailyStockRecords[date];
+  let DailyStockRecord = DailyStockRecord[date];
 
   // Check if there are any stock records for the given date
   if (!DailyStockRecords) {
@@ -150,7 +150,7 @@ function printStockRecords(date) {
   }
 
   // Loop through all the stock records for the given date and print them
-  for (let i = 0; i < StockRecords.length; i++) {
+  for (let i = 0; i < DailyStockRecord.length; i++) {
     console.log(
       `DailyStockRecords: | name: ${stockName} | quantity: ${DailystockQuantity} | Unit Price: ${stockunitPrice} | Total Price: ${DailystocktotalPrice} | Date: ${date} | Time: ${time}`
     );
