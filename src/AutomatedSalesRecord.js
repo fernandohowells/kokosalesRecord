@@ -34,9 +34,9 @@ export default App;
 const STOCKRECORDS = [];
 
 // Receive and store the stocks data for each day of the year
-for (let i = 0; i < 366; i++)
+for (let i = 0; i < 365; i++)
 while (true) {
-const stockname = parseInt(prompt(`Enter "Enter stock name (or type 'done' to exit) ${i}:`));
+let stockname = parseInt(prompt(`Enter "Enter stock name (or type 'done' to exit) ${i}:`));
 if (name === "done") {
   break;
 }
@@ -54,9 +54,9 @@ console.log(StockRecords);
 //Define an object to store the stock records daily
 const DailyStockRecords = {};
 //Receive and store the sales data for each day of the year
-for (let i = 0; i < 366; i++) 
+for (let i = 0; i < 365; i++) 
 while (true) 
-  const stockname = parseInt(prompt(`Enter "Enter stock name (or type 'done' to exit) ${i}:`));
+  let stockname = parseInt(prompt(`Enter "Enter stock name (or type 'done' to exit) ${i}:`));
   if (name === "done") {
     break;
   }
@@ -91,12 +91,14 @@ let DailyStockRecord = DailyStockRecords[date];
 //Call the printStockRecords function to print all the stock records for a given date
 PrintStockRecords("2023-02-19");
 
-//WEEKLY STOCK RECORD
-// Define an object to store the stock records by week
+//WEEKLY STOCK RECORDS
+// Define an object to store the stock records weekly
 const WeeklyStockRecord = {};
-//Receive and store the sales data for each week of the year
+//Receive and store the stock data for each week of the year
 for (let i = 1; i <= 52; i++) {
-  const stockname = parseInt(prompt(`Enter the stock name ${i}:`));
+// Define a function to add a new stock record for a given week
+function addStockRecord(stockName, weeklystockQuantity, stockunitPrice, date, time)  
+  let stockname = parseInt(prompt(`Enter the stock name ${i}:`));
   let weeklystockQuantity = parseFloat(prompt("Enter weekly stock quantity for " + name + ":"));
   let stockunitPrice = parseFloat(prompt("Enter stock unit price for " + name + ":"));
   let date = prompt("Enter date for " + name + ":");
@@ -104,9 +106,7 @@ for (let i = 1; i <= 52; i++) {
   let weeklycost = weeklystockQuantity * stockunitPrice;
   STOCKRECORDS.push(Weeklystockrecords);
 }
-// Define a function to add a new stock record for a given date
-function addStockRecord(stockName, weeklystockQuantity, stockunitPrice, date, time) 
-
+ 
 // Define a function to print all the stock records for a given week
 function printStockRecordsForWeek(startDate) 
   // Define the number of days in a week
@@ -118,29 +118,31 @@ function printStockRecordsForWeek(startDate)
     date.setDate(date.getDate() + i);
     let dateString = date.toString().substring(0, 10);
 
-    // Get the array of stock records for the current day
+    // Get the array of stock records for the current week
     let WeeklyStockRecords = WeeklyStockRecords[dateString];
 
-    // Check if there are any stock records for the current day
+    // Check if there are any stock records for the current week
     if (! WeeklyStockRecord) {
       console.log(`No stock records found for date: ${dateString}`);
       continue;
     }
-    // Loop through all the stock records for the current day and print them
+    // Loop through all the stock records for the current week and print them
     for (let j = 0; j < WeeklyStockRecord.length; j++) 
       let WeeklyStockRecord = WeeklyStockRecord [j];
       console.log(
-        WeeklyStockRecord = {name} | {quantity} | {unitPrice} | {totalCost} |  {dateString} | {time} |
+        WeeklyStockRecord = {stockname} | {weeklystockquantity} | {stockunitPrice} | {weeklyCost} |  {dateString} | {time} |
 )
 Print(WeeklyStockRecord)
 
-// MONTHLY STOCK RECORD
-// Define an object to store the stock records by week
+// MONTHLY STOCK RECORDS
+// Define an object to store the stock records monthly
 const MonthlyStockRecord = {};
 
 //Receive and store the sales data for each month of the year
 for (let i = 1; i <= 12; i++) {
-  const stockname = parseInt(prompt(`Enter the stock name ${i}:`));
+// Define a function to add a new stock record for a given month
+function addStockRecord(stockName, monthlystockQuantity, stockunitPrice, date, time)   
+  let stockname = parseInt(prompt(`Enter the stock name ${i}:`));
   let monthlystockQuantity = parseFloat(prompt("Enter monthly stock quantity for " + name + ":"));
   let stockunitPrice = parseFloat(prompt("Enter stock unit price for " + name + ":"));
   let date = prompt("Enter date for " + name + ":");
@@ -148,43 +150,42 @@ for (let i = 1; i <= 12; i++) {
   let monthlycost = monthlystockQuantity * stockunitPrice;
   STOCKRECORDS.push(monthlystockrecords);
 }
-// Define a function to add a new stock record for a given date
-function addStockRecord(stockName, monthlystockQuantity, stockunitPrice, date, time) 
-   
 // Define a function to print all the stock records for a given month
 function printStockRecordsForMonth(startDate) 
-// Define the number of days in a month
-const daysInMonth = 31;      
+// Define the number of weeks in a month
+const weeksInMonth = 4;
 
-// Loop through all the days in the month starting from the given start date
-for (let i = 0; i < daysInMonth; i++) 
-// Get the date for the current day
+// Loop through all the weeks in the month starting from the given start date
+for (let i = 0; i < weeksInMonth; i++)   
+// Get the date for the current week
 date.setDate(date.getDate() + i);
 let dateString = date.toString().substring(0, 10);
 
-// Get the array of stock records for the current day
+// Get the array of stock records for the current month
 let MonthlyStockRecords = MonthlyStockRecords[dateString];
 
-// Check if there are any stock records for the current day
+// Check if there are any stock records for the current month
 if (! MonthlyStockRecord) {
   console.log(`No stock records found for date: ${dateString}`);
   continue;
 }
-// Loop through all the stock records for the current day and print them
+// Loop through all the stock records for the current month and print them
 for (let j = 0; j < MonthlyStockRecord.length; j++) 
   let MonthlyStockRecord = MonthlyStockRecord [j];
   console.log(
-    MonthlyStockRecord = {name} | {quantity} | {unitPrice} | {totalCost} |  {dateString} | {time} |
+    MonthlyStockRecord = {stockname} | {monthlystockquantity} | {stockunitPrice} | {monthlyCost} |  {dateString} | {time} |
 ) 
 Print(MonthlyStockRecord)
 
-// YEARLY STOCK RECORD
-// Define an object to store the stock records by month
+// YEARLY STOCK RECORDS
+// Define an object to store the stock records yearly
 const YearlyStockRecord = {};
 
-//Receive and store the sales data for each month of the year
+//Receive and store the sales data for the year
 for (let i = 1; i++;) {
-  const stockname = parseInt(prompt(`Enter the stock name ${i}:`));
+// Define a function to add a new stock record for a given year
+function addStockRecord(stockName, yearlystockQuantity, stockunitPrice, date, time) 
+  let stockname = parseInt(prompt(`Enter the stock name ${i}:`));
   let yearlystockQuantity = parseFloat(prompt("Enter yearly stock quantity for " + name + ":"));
   let stockunitPrice = parseFloat(prompt("Enter stock unit price for " + name + ":"));
   let date = prompt("Enter date for " + name + ":");
@@ -192,24 +193,23 @@ for (let i = 1; i++;) {
   let yearlycost = yearlystockQuantity * stockunitPrice;
   STOCKRECORDS.push(yearlystockrecords);
 }
-// Define a function to add a new stock record for a given month
-function addStockRecord(stockName, yearlystockQuantity, stockunitPrice, date, time) {
-
-// Define a function to print all the stock records for a given month
+// Define a function to print all the stock records for a given year
 function printStockRecordsForYear(startDate) 
-// Define the number of months in a year
-const monthsInYear = 12;      
+// Define the number of days, weeks and months in a year
+const monthsInYear = 12;   
+const weeksInYear = 52;
+const daysInYear = 365;
 
 // Loop through all the months in the year starting from the given start date
 for (let i = 0; i < monthsInYear; i++) 
-// Get the date for the current day
+// Get the date for the current month
 date.setDate(date.getDate() + i);
 let dateString = date.toString().substring(0, 10);
 
-// Get the array of stock records for the current day
+// Get the array of stock records for the current year
 let YearlyStockRecords = YearlyStockRecords[dateString];
 
-// Check if there are any stock records for the current day
+// Check if there are any stock records for the current year
 if (! YearlyStockRecord) {
   console.log(`No stock records found for date: ${dateString}`);
   continue;
@@ -218,7 +218,7 @@ if (! YearlyStockRecord) {
 for (let j = 0; j < YearlyStockRecord.length; j++) 
   let YearlyStockRecord = YearlyStockRecord [j];
   console.log( 
-    YearlyStockRecord = {name} | {quantity} | {unitPrice} | {totalCost} |  {dateString} | {time} |
+    YearlyStockRecord = {stockname} | {yearlystockquantity} | {stockunitPrice} | {yearlyCost} |  {dateString} | {time} |
 )      
 Print(YearlyStockRecord)   
 
@@ -227,8 +227,10 @@ Print(YearlyStockRecord)
 const dailySalesRecord = [];
 
 // receive and store the sales data for each day of the year
-for (let i = 0; i < 366; i++) {
-  const stockname = parseInt(prompt(`Enter the stockname ${i+1}:`));
+for (let i = 0; i < 365; i++) {
+// Define a function to add a new sales record for a day
+function addSalesRecord(stockName, dailysalesQuantity, salesunitprice, stockunitPrice, dailydebit, dailycredit, date, time, dailyrevenue, dailyprofit, dailypercentageprofit)   
+  let stockname = parseInt(prompt(`Enter the stockname ${i+1}:`));
   let dailysalesquantity = parseFloat(prompt("Enter daily sales quantity for " + name + ":"));
   let salesunitPrice = parseFloat(prompt("Enter sales unit price for " + name + ":"));
   let stockunitPrice = parseFloat(prompt("Enter stock unit price for " + name + ":"));
@@ -243,21 +245,22 @@ dailySalesRecord.push(dailysales);
 }
 console.log(dailySales);
 
-// calculate the total sales for the week
-const WeeklySales = dailySales.reduce((acc, cur) => acc + cur, 0);
+// calculate sales for the day
+const DailySales = dailySales.reduce((acc, cur) => acc + cur, 0);
 
-// find the index of the highest sales day
+// print the daily sales data
+console.log(`Daily sales: ${dailySales}`);
+
+// find the index of the highest sales
 const highestSalesIndex = dailySales.indexOf(Math.max(...dailySales));
 
-// find the index of the lowest sales day
+// find the index of the lowest sales 
 const lowestSalesIndex = dailySales.indexOf(Math.min(...dailySales));
 
 // print the results
 console.log(`The highest sales day is day ${highestSalesIndex+1} with ${dailySales[highestSalesIndex]} sales.`);
 console.log(`The lowest sales day is day ${lowestSalesIndex+1} with ${dailySales[lowestSalesIndex]} sales.`);
 
-// print the weekly sales data
-console.log(`Weekly sales: ${WeeklySales}`);
 
 // WEEKLY SALES RECORD
 // initialize an empty array to store the sales records
@@ -265,7 +268,9 @@ const WeeklySalesRecord = [];
 
 // receive and store the weekly sales data for the year
 for (let i = 1; i <= 52; i++) {
-  const stockname = parseInt(prompt(`Enter the stock name ${i}:`));
+// Define a function to add a new sales record for a day
+function addSalesRecord(stockName, weeklysalesQuantity, salesunitprice, stockunitPrice, weeklydebit, weeklycredit, date, time, weeklyrevenue, weeklyprofit, weeklypercentageprofit)   
+  let stockname = parseInt(prompt(`Enter the stock name ${i}:`));
   let weeklysalesquantity = parseFloat(prompt("Enter weekly sales quantity for " + name + ":"));
   let salesunitPrice = parseFloat(prompt("Enter sales unit price for " + name + ":"));
   let stockunitPrice = parseFloat(prompt("Enter stock unit price for " + name + ":"));
@@ -290,11 +295,11 @@ const lowestSalesIndex = weeklylySales.indexOf(Math.min(...weeklySales));
 console.log(`The highest sales week is week ${highestSalesIndex+1} with ${weeklySales[highestSalesIndex]} sales.`);
 console.log(`The lowest sales week is week ${lowestSalesIndex+1} with ${weeklySales[lowestSalesIndex]} sales.`);
 
-// calculate the total sales for the month
-const monthlySales = weeklySales.reduce((acc, cur) => acc + cur, 0);
+// calculate  sales for the week
+const weeklySales = dailySales.reduce((acc, cur) => acc + cur, 0);
 
-// print the monthly sales data
-console.log(`Monthly sales: ${monthlySales}`);
+// print the weekly sales data
+console.log(`Weekly sales: ${weeklySales}`);
 
 // MONTHLY SALES RECORD
 
@@ -303,7 +308,9 @@ const MonthlySalesRecord = [];
 
 // receive and store the monthly sales data for the year
 for (let i = 1; i <= 12; i++) {
-  const stockname = parseInt(prompt(`Enter the stock name ${i}:`));
+// Define a function to add a new sales record for each month
+function addSalesRecord(stockName, monthlysalesQuantity, salesunitprice, stockunitPrice, monthlydebit, monthlycredit, date, time, monthlyrevenue, monthlyprofit, monthlypercentageprofit)   
+  let stockname = parseInt(prompt(`Enter the stock name ${i}:`));
   let monthlysalesquantity = parseFloat(prompt("Enter monthly sales quantity for " + name + ":"));
   let salesunitPrice = parseFloat(prompt("Enter sales unit price for " + name + ":"));
   let stockunitPrice = parseFloat(prompt("Enter stock unit price for " + name + ":"));
@@ -328,18 +335,21 @@ const lowestSalesIndex = monthlySales.indexOf(Math.min(...monthlySales));
 console.log(`The highest sales month is month ${highestSalesIndex+1} with ${monthlySales[highestSalesIndex]} sales.`);
 console.log(`The lowest sales month is month ${lowestSalesIndex+1} with ${monthlySales[lowestSalesIndex]} sales.`);
 
-// calculate the total sales for the year
-const yearlySales = monthlySales.reduce((acc, cur) => acc + cur, 0);
+// calculate sales for the month
+const monthlySales = weeklySales.reduce((acc, cur) => acc + cur, 0);
 
-// print the yearly sales data
-console.log(`Yearly sales: ${yearlySales}`);
+// print the monthly sales data
+console.log(`Monthly sales: ${monthlySales}`)
+
 
 // YEARLY SALES RECORD
 // initialize an empty array to store the sales records
 const YearlySalesRecord = [];
 
 // receive and store the yearly sales data 
-for (let i = 1; i <= 12; i++) {
+for (let i = 1; i++) {
+  // Define a function to add a new sales record for each month
+function addSalesRecord(stockName, yearlysalesQuantity, salesunitprice, stockunitPrice, yearlydebit, yearlycredit, date, time, yearlyrevenue, yearlyprofit, yearlypercentageprofit)
   const stockname = parseInt(prompt(`Enter the stock name ${i}:`));
   let yearlysalesquantity = parseFloat(prompt("Enter yearly sales quantity for " + name + ":"));
   let salesunitPrice = parseFloat(prompt("Enter sales unit price for " + name + ":"));
@@ -355,23 +365,21 @@ yearlySalesRecord.push(yearlysales);
 }
 console.log(yearlySales);
 
-// find the index of the highest sales month
+// find the index of the highest sales in a year
 const highestSalesIndex = yearlySales.indexOf(Math.max(...yearlySales));
 
-// find the index of the lowest sales month
+// find the index of the lowest sales in a year
 const lowestSalesIndex = yearlySales.indexOf(Math.min(...yearlySales));
 
 // print the results
 console.log(`The highest sales year is year ${highestSalesIndex+1} with ${yearlySales[highestSalesIndex]} sales.`);
 console.log(`The lowest sales year is year ${lowestSalesIndex+1} with ${yearlySales[lowestSalesIndex]} sales.`);
 
-// calculate the total sales for the year
+// calculate sales for the year
 const yearlySales = yearlySales.reduce((acc, cur) => acc + cur, 0);
 
 // print the yearly sales data
 console.log(`Yearly sales: ${yearlySales}`);
-
-
 
 
 
