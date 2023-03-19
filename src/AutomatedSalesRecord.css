@@ -1,0 +1,109 @@
+.App {
+  text-align: center;
+}
+
+.App-logo {
+  height: 40vmin;
+  pointer-events: none;
+}
+
+.App-header {
+  background-color: #282c34;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  font-size: calc(10px + 2vmin);
+  color: white;
+}
+
+.App-link {
+  color: #61dafb;
+}
+
+.heart {
+  color: #ff0000;
+}
+
+.small {
+  font-size: 0.75rem;
+}
+
+<html>
+  <head>
+    <style>
+      body {
+        font-family: Arial, sans-serif;
+        background-color: #f2f2f2;
+      }
+      
+      form {
+        margin: 0 auto;
+        max-width: 600px;
+        background-color: #fff;
+        padding: 20px;
+        border-radius: 5px;
+        box-shadow: 0px 0px 10px rgba(0,0,0,0.2);
+      }
+      
+      input[type=text], input[type=number] {
+        width: 100%;
+        padding: 12px 20px;
+        margin: 8px 0;
+        display: inline-block;
+        border: 1px solid #ccc;
+        border-radius: 4px;
+        box-sizing: border-box;
+      }
+      
+      label {
+        display: block;
+        font-weight: bold;
+        margin-bottom: 10px;
+      }
+      
+      button[type=submit] {
+        background-color: #4CAF50;
+        color: white;
+        padding: 12px 20px;
+        border: none;
+        border-radius: 4px;
+        cursor: pointer;
+        float: right;
+      }
+      
+      button[type=submit]:hover {
+        background-color: #45a049;
+      }
+    </style>
+  </head>
+  
+  <body>
+    <form>
+      <label for="stock-name">Stock Name:</label>
+      <input type="text" id="stock-name" name="stock-name" required>
+      
+      <label for="unit-price">Unit Price:</label>
+      <input type="number" id="unit-price" name="unit-price" required>
+      
+      <label for="quantity">StockQuantity:</label>
+      <input type="number" id="quantity" name="quantity" required>
+      
+      <label for="cost-price">Total Price:</label>
+      <input type="number" id="cost-price" name="cost-price" required>
+      
+      <button type="submit">Submit</button>
+    </form>
+  </body>
+</html>
+
+
+
+
+
+
+
+
+
+
