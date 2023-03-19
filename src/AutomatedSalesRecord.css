@@ -30,55 +30,74 @@
   font-size: 0.75rem;
 }
 
-<html>
-  <head>
-    <style>
-      body {
-        font-family: Arial, sans-serif;
-        background-color: #f2f2f2;
-      }
-      
-      form {
-        margin: 0 auto;
-        max-width: 600px;
-        background-color: #fff;
-        padding: 20px;
-        border-radius: 5px;
-        box-shadow: 0px 0px 10px rgba(0,0,0,0.2);
-      }
-      
-      input[type=text], input[type=number] {
-        width: 100%;
-        padding: 12px 20px;
-        margin: 8px 0;
-        display: inline-block;
-        border: 1px solid #ccc;
-        border-radius: 4px;
-        box-sizing: border-box;
-      }
-      
-      label {
-        display: block;
-        font-weight: bold;
-        margin-bottom: 10px;
-      }
-      
-      button[type=submit] {
-        background-color: #4CAF50;
-        color: white;
-        padding: 12px 20px;
-        border: none;
-        border-radius: 4px;
-        cursor: pointer;
-        float: right;
-      }
-      
-      button[type=submit]:hover {
-        background-color: #45a049;
-      }
-    </style>
-  </head>
-  
+<div class="form-container">
+  <div class="form-field">
+    <label for="stock-name" class="form-label">Stock Name:</label>
+    <input type="text" id="stock-name" name="stock-name" class="form-input">
+  </div>
+  <div class="form-field">
+    <label for="unit-price" class="form-label">Unit Price:</label>
+    <input type="text" id="unit-price" name="unit-price" class="form-input">
+  </div>
+  <div class="form-field">
+    <label for="quantity" class="form-label">Quantity:</label>
+    <input type="text" id="stock-quantity" name="quantity" class="form-input">
+  </div>
+  <div class="form-field">
+    <label for="total-cost" class="form-label">Total cost:</label>
+    <input type="text" id="total-price" name="total-cost" class="form-input">
+  </div>
+  <div class="form-field">
+    <label for="date" class="form-label">Date:</label>
+    <input type="text" id="date" name="date" class="form-input">
+  </div>
+  <div class="form-field">
+    <label for="time" class="form-label">Time:</label>
+    <input type="text" id="time" name="time" class="form-input">
+  </div>
+  <div
+
+
+.form-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.form-field {
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 1rem;
+}
+
+.form-label {
+  font-size: 1rem;
+  font-weight: bold;
+  margin-bottom: 0.5rem;
+}
+
+.form-input {
+  padding: 0.5rem;
+  font-size: 1rem;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  width: 100%;
+}
+
+.submit-button {
+  background-color: #4CAF50;
+  color: white;
+  padding: 0.5rem 1rem;
+  border: none;
+  border-radius: 4px;
+  font-size: 1rem;
+  cursor: pointer;
+}
+
+.submit-button:hover {
+  background-color: #3e8e41;
+}
+
   <body>
     <form>
       <label for="stock-name">Stock Name:</label>
