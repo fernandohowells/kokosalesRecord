@@ -11,3 +11,141 @@ code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
 }
+body {
+  background-color: #f2f2f2;
+}
+
+.container {
+  max-width: 600px;
+  margin: 0 auto;
+  padding: 20px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  background-color: #fff;
+}
+
+form {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+}
+
+label {
+  display: inline-block;
+  margin-bottom: 10px;
+  font-weight: bold;
+}
+
+input[type="text"], input[type="number"], input[type="datetime-local"] {
+  display: block;
+  width: 100%;
+  padding: 10px;
+  margin-bottom: 20px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+}
+
+input[type="submit"] {
+  background-color: #4CAF50;
+  color: #fff;
+  padding: 10px 20px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  margin-top: 10px;
+}
+
+input[type="submit"]:hover {
+  background-color: #3e8e41;
+}
+
+input[type="datetime-local"]::-webkit-inner-spin-button {
+  display: none;
+}
+
+input[type="datetime-local"]::-webkit-calendar-picker-indicator {
+  color: #888;
+  opacity: 1;
+}
+
+body {
+  background-color: #f2f2f2;
+}
+
+.container {
+  max-width: 800px;
+  margin: 0 auto;
+  padding: 20px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  background-color: #fff;
+}
+
+table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-bottom: 20px;
+}
+
+table th, table td {
+  padding: 10px;
+  text-align: left;
+  border: 1px solid #ccc;
+}
+
+table th {
+  font-weight: bold;
+  background-color: #f2f2f2;
+}
+
+table tr:nth-child(even) {
+  background-color: #f9f9f9;
+}
+
+table tr:hover {
+  background-color: #ddd;
+}
+
+form {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+}
+
+label {
+  display: inline-block;
+  margin-bottom: 10px;
+  font-weight: bold;
+}
+
+input[type="text"], input[type="number"], input[type="datetime-local"] {
+  display: block;
+  width: 100%;
+  padding: 10px;
+  margin-bottom: 20px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+}
+
+input[type="submit"] {
+  background-color: #4CAF50;
+  color: #fff;
+  padding: 10px 20px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  margin-top: 10px;
+}
+
+input[type="submit"]:hover {
+  background-color: #3e8e41;
+}
+
+input[type="datetime-local"]::-webkit-inner-spin-button {
+  display: none;
+}
+
+input[type="datetime-local"]::-webkit-calendar-picker-indicator {
+  color: #888;
+  opacity: 1;
+}
