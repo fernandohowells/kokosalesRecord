@@ -18,3 +18,33 @@
     }
   ]
 }
+{
+  "database_name": "sales_records",
+  "file_path": "/sales_records/",
+  "fields": [
+    {
+      "field_name": "product_name",
+      "data_type": "string"
+    },
+    {
+      "field_name": "unit_price",
+      "data_type": "float"
+    },
+    {
+      "field_name": "quantity",
+      "data_type": "integer"
+    },
+    {
+      "field_name": "total_price",
+      "data_type": "float"
+    },
+    {
+      "field_name": "date",
+      "data_type": "date"
+    },
+    {
+      "field_name": "time",
+      "data_type": "time"
+    }
+  ]
+}
