@@ -24,6 +24,33 @@
       To begin the development, run `npm start` or `yarn start`.
       To create a production bundle, use `npm run build` or `yarn build`.
     -->
+    
+ <!DOCTYPE html>
+<html>
+<head>
+	<title>Create Sales Database</title>
+</head>
+<body>
+	<h1>Create Sales Database</h1>
+	<form method="post" action="submit_form.php">
+		<label for="product_name">Product Name:</label>
+		<input type="text" id="product_name" name="product_name"><br><br>
+		<label for="quantity">Quantity:</label>
+		<input type="number" id="quantity" name="quantity"><br><br>
+		<label for="unit_price">Unit Price:</label>
+		<input type="number" step="0.01" id="unit_price" name="unit_price"><br><br>
+		<label for="total_price">Total Price:</label>
+		<input type="number" step="0.01" id="total_price" name="total_price"><br><br>
+		<label for="date">Date:</label>
+		<input type="date" id="date" name="date"><br><br>
+		<label for="time">Time:</label>
+		<input type="time" id="time" name="time"><br><br>
+		<input type="submit" value="Submit">
+	</form>
+</body>
+</html>
+   
+    
   </body>
 </html>
 <form>
