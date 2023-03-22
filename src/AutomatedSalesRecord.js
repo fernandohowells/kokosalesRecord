@@ -28,6 +28,59 @@ function App() {
 
 export default App;
 
+npm install sqlite3
+
+
+const sqlite3 = require('sqlite3').verbose();
+
+// Open database connection
+let db = new sqlite3.Database('products.db');
+
+// Create table
+db.run(`CREATE TABLE IF NOT EXISTS products (
+  id INTEGER PRIMARY KEY AUTOINCREMENT,
+  name TEXT,
+  unitPrice REAL,
+  quantity INTEGER,
+  totalPrice REAL,
+  date TEXT
+)`);
+
+// Insert data
+let name = 'Product A';
+let unitPrice = 9.99;
+let quantity = 5;
+let totalPrice = unitPrice * quantity;
+let date = new Date().toISOString();
+
+db.run(`INSERT INTO products (name, unitPrice, quantity, totalPrice, date)
+  VALUES (?, ?, ?, ?, ?)`, [name, unitPrice, quantity, totalPrice, date], function(err) {
+  if (err) {
+    return console.log(err.message);
+  }
+  console.log(`A row has been inserted with rowid ${this.lastID}`);
+});
+
+// Close database connection
+db.close();
+
+const sqlite3 = require('sqlite3').verbose();
+
+// Open database connection
+let db = new sqlite3.Database('products.db');
+
+// Select data
+db.all(`SELECT * FROM products`, [], (err, rows) => {
+  if (err) {
+    return console.error(err.message);
+  }
+  rows.forEach(row => {
+    console.log(row.id, row.name, row.unitPrice, row.quantity, row.totalPrice, row.date);
+  });
+});
+
+// Close database connection
+db.close();
 
 
 //STOCKRECORDS
